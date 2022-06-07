@@ -6,7 +6,7 @@ class CartaCredito
     private $cvv;
     private $dataScadenza;
 
-    function __construct($_nome, $_numero, $_cvv, $_dataScadenza)
+    function __construct($_nome, $_numero, $_cvv, $_dataScadenza = "")
     {
         $this->nome = $_nome;
         $this->numero = $_numero;
@@ -39,7 +39,11 @@ class CartaCredito
     }
     public function setDataScadenza($_dataScadenza)
     {
+        // if ($_dataScadenza == date("Y-m-d")) {
+        //     throw new Exception('Carta di credito scaduta');
+        // } else {
         $this->dataScadenza = $_dataScadenza;
+        // }
     }
     public function getDataScadenza()
     {

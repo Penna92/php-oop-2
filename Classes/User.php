@@ -5,15 +5,19 @@ class User
     protected $cognome;
     protected $email;
     protected $indirizzo;
-    protected $sconto;
+    protected $sconto = 0;
     // protected $subscription;
+    protected $carta_credito;
+    protected $prodotto_acquistato;
 
-    function __construct($_nome, $_cognome, $_email, $_indirizzo)
+    function __construct($_nome, $_cognome, $_email, $_indirizzo, $_carta_credito = [], $_prodotto_acquistato = []) //aggiungere carta credito
     {
         $this->nome = $_nome;
         $this->cognome = $_cognome;
         $this->email = $_email;
         $this->indirizzo = $_indirizzo;
+        $this->carta_credito = $_carta_credito;
+        $this->prodotto_acquistato = $_prodotto_acquistato;
     }
     public function getNome()
     {
@@ -52,16 +56,20 @@ class User
         $this->indirizzo = $_indirizzo;
     }
 
-    public function setSconto($subscription)
+    public function getCartaCredito()
     {
-        if ($subscription == true) {
-            $this->sconto = 20;
-        } else {
-            $this->sconto = 0;
-        }
+        return $this->carta_credito;
     }
-    public function getSconto()
+    public function setCartaCredito($_carta_credito)
     {
-        return $this->sconto;
+        $this->carta_credito[] = $_carta_credito;
+    }
+    public function getProdottoAcquistato()
+    {
+        return $this->prodotto_acquistato;
+    }
+    public function setProdottoAcquistato($_prodotto_acquistato)
+    {
+        $this->prodotto_acquistato[] = $_prodotto_acquistato;
     }
 }
