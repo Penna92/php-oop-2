@@ -39,11 +39,12 @@ class CartaCredito
     }
     public function setDataScadenza($_dataScadenza)
     {
-        // if ($_dataScadenza == date("Y-m-d")) {
-        //     throw new Exception('Carta di credito scaduta');
-        // } else {
-        $this->dataScadenza = $_dataScadenza;
-        // }
+        if ($_dataScadenza < date("Y-m-d")) {
+            //     throw new Exception('Carta di credito scaduta');
+            $this->dataScadenza = $_dataScadenza . ' (Carta di credito scaduta, non puoi effettuare l\'acquisto) ';
+        } else {
+            $this->dataScadenza = $_dataScadenza;
+        }
     }
     public function getDataScadenza()
     {
