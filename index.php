@@ -66,6 +66,7 @@ $prodotto6 = new Product('Giochi', 'Palla', 'LionBall', 'Leone', 15.00);
 // PRODOTTI ACQUISTATI 
 $utente1->setProdottoAcquistato($prodotto1);
 $utente1->setProdottoAcquistato($prodotto2);
+$utente1->setProdottoAcquistato($prodotto4);
 // var_dump($utente1);
 
 $utente2->setProdottoAcquistato($prodotto3);
@@ -126,14 +127,14 @@ $utentePremium2->setSconto();
         <h4><?php echo $utentePremium1->getEmail() . ' - ' . $utentePremium1->getIndirizzo() . ' - Scadenza carta di credito: ' . $cartaCredito3->getDataScadenza() ?></h4>
         <ul>
             <?php foreach ($utentePremium1->getProdottoAcquistato() as $prodotto) { ?>
-                <li><?php echo $prodotto->getCategory() . ' - ' . $prodotto->getType() . ' - ' . $prodotto->getMarca() . ' - ' . $prodotto->getAnimale() . ' - Prezzo intero: ' . $prodotto->getPrice() . '&euro;' . ' - Prezzo scontato: ' . ($prodotto->getPrice() / 100 * 80) . '&euro;'  ?></li>
+                <li><?php echo $prodotto->getCategory() . ' - ' . $prodotto->getType() . ' - ' . $prodotto->getMarca() . ' - ' . $prodotto->getAnimale() . ' - Prezzo intero: ' . $prodotto->getPrice() . '&euro;' . ' - Prezzo scontato: ' . ($prodotto->getTotale()) . '&euro;'  ?></li>
             <?php } ?>
         </ul>
         <h3><?php echo $utentePremium2->getNome() . '  ' . $utentePremium2->getCognome() ?></h3>
         <h4><?php echo $utentePremium2->getEmail() . ' - ' . $utentePremium2->getIndirizzo() . ' - Scadenza carta di credito: ' . $cartaCredito4->getDataScadenza() ?></h4>
         <ul>
             <?php foreach ($utentePremium2->getProdottoAcquistato() as $prodotto) { ?>
-                <li><?php echo $prodotto->getCategory() . ' - ' . $prodotto->getType() . ' - ' . $prodotto->getMarca() . ' - ' . $prodotto->getAnimale() . ' - Prezzo intero: ' . $prodotto->getPrice() . '&euro;' . ' - Prezzo scontato: ' . ($prodotto->getPrice() / 100 * 80) . '&euro;'    ?></li>
+                <li><?php echo $prodotto->getCategory() . ' - ' . $prodotto->getType() . ' - ' . $prodotto->getMarca() . ' - ' . $prodotto->getAnimale() . ' - Prezzo intero: ' . $prodotto->getPrice() . '&euro;' . ' - Prezzo scontato: ' . ($utentePremium2->getTotale()) . '&euro;'    ?></li>
             <?php } ?>
         </ul>
     </div>

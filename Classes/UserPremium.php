@@ -25,6 +25,16 @@ class UserPremium extends User
     {
         $this->sconto = 20;
     }
+    public function getTotale(){
+        $totale = 0;
+        foreach($this->prodotto_acquistato as $prodotto) {
+            $totale += $prodotto->price;
+        }
+        $totale = $totale * $this->sconto / 100;
+        var_dump($totale);
+        return $totale;
+    }
+
     // {
     //     if (
     //         $subscription == true
